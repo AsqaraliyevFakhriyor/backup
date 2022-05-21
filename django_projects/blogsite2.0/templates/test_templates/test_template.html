@@ -1,0 +1,51 @@
+<div class="articles_list">
+    <p class="text-light fw-bold">All articles: {{ object_list.all.count }}</p>
+    <div class="card-container d-flex flex-wrap" style="padding-left: 11px; position: relative">
+        {% for article in object_list %}
+            <a href="{% url 'article_detail' article.pk %}" class="" style="text-decoration: none; color: black;">
+
+                <div class="card bg-warning me-3 mb-3" style="height: 40rem; width: 60rem; border-radius: 5px;">
+
+                    <!-- Card Photo section -->
+                    <div class="card-img-top" style="height: 20rem; width: 20rem; float: left">
+                        {% if article.photo %}         
+                                <img style="border-top-left-radius: 5px;border-top-right-radius: 5px;" src="{{ article.photo.url }}" class="card-img-top" alt="{{ article.title }}">
+                        {% else %}
+                                <img style="border-top-left-radius: 5px;border-top-right-radius: 5px;" src="https://static.toiimg.com/thumb/msid-67586673,width-800,height-600,resizemode-75,imgsize-3918697,pt-32,y_pad-40/67586673.jpg" class="card-img-top" alt="...">
+                        {% endif %}
+
+                    </div>
+                    <!-- /Card Photo section -->
+
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{ article.title }}</h5>
+                        <p class="card-text">{{ article.summary | slice:"60" }}.</p>
+
+                        <div class="tags_div" style="font-size: 0.5rem; display: inline">
+                            <span>django</span>
+                            <span>python</span>
+                            <span>engineering</span>
+                        </div>
+
+                        <div class="position: absolute; bottom: 16">
+                            <a href="/like" class="btn btn-danger" style="position: absolute; bottom: 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-heart-fill" viewBox="0 0 16 16">
+                                    <path d="M2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Zm6 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                                    </svg> 254
+                            </a>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<a class="container sidebar btn btn-light text-dark">
+    Contact
+    <i class="bi bi-telephone-fill"></i>
+</a>

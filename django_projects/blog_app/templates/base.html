@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Base html</title>
+</head>
+<body>
+    <!-- Header section -->
+    <div class="container">
+        <header class="header-section">
+            <div class="haeder-section__image">
+                <img src="{% static 'media/logo.png' %}" alt="logo">
+            </div>
+            <nav class="header-section__navbar">
+                <ul class="header-section__items">
+                    <li class="header-section__item">
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="header-section__item">
+                        <a href="/admin/">Admin panel</a>
+                    </li>
+                    <li class="header-section__item">
+                        <a href="{% url 'post_create' %}">create new post</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="header-section__item">
+                        profile: <span style="color: black;">{{ user.username }}</span>  <a href="{% url 'logout' %}" class="button">logout</a>
+                    </li>
+                    {% else %}
+                    <li class="header-section__item">
+                        <a href="{% url 'login' %}" class="button">LogIn</a>
+                    </li>
+                    <li class="header-section__item">
+                        <a href="{% url 'signup' %}" class="button">SignUp</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <!-- /Header section -->
+
+    <!-- Main section -->
+    <div class="container">
+        <section class="main-section">
+            {% block content %}
+    
+            {% endblock content %}
+        </section>
+    </div>
+    <!-- /Main section -->
+
+    <!-- Footer section -->
+    <!-- /Footer section -->
+</body>
+</html>

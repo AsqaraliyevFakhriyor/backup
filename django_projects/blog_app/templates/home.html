@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class="main-section__title">POSTS:</h3>
+<hr class="line-through">
+    {% for post in object_list %}
+        <a href="/post/{{ post.pk }}" class="main-section__todos-link">
+            <div class="main-section__todos">
+                <fieldset class="main-section__todos-container">
+                    <legend class="main-section__todos-title">
+                        {{ post.title | slice:"20" }}
+                    </legend>
+                    {{ post.body | slice:"40" }}
+                </fieldset>
+            </div>
+        </a>
+    {% endfor %}
+{% endblock %}

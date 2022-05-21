@@ -1,0 +1,67 @@
+# Simple `BLOG SITE🌐` in python🐍 `django` firemwork!
+
+
+### [!] project maded with [mohirev.uz](https://www.mohirdev.uz) tutorials!
+
+>[INFO] Blog web site which you can read news posted by admin, its 
+> has `authorization🔐` modul so users can signup admin can 
+> *post, delete, edit* news and `controls` users at the same time
+
+
+
+
+## Dependeces 📌
+1. python-3.9.2+
+
+
+### Cloning from GitHub
+
+```bash
+    git clone https://github.com/AsqaraliyevFakhriyor/blogsite_webapp <PRIOJECT_DIR>
+    cd <PROJECT_DIR>
+```
+
+### Pip **requerements** 📦
+
+1. django==3.1.*
+
+
+
+
+### Installing 🛠️
+1. Creating virtual enviroment with `venv`
+
+```bash
+    python -m venv vevn
+    source venv/Script/activate
+```
+! if you are `Mac` or `Linux` users you can use the code belove to activate `VENV`:
+```bash
+    source vevn/bin/activate
+```
+
+2. Installing pip requirements
+>[!] Installing requirements.txt 📋
+```bash
+    pip install -r requirements.txt
+```
+> ! You must change `pip` to `pip3` if you are **Mac** or **Linux** user
+
+
+3. Seting **DATABASE**🗂 django uses !`sqlite3`🗃️
+```bash
+    touch 'db.sqlite3'
+    python manage.py makemigrations
+    python manage.py migrate
+```
+> ! You must change `python` to `python3` if you are **Mac** or **Linux** user
+
+### Runing application 🏃
+
+```bash
+    python manage.py runserver
+```
+
+# DISCLAIMER ❗❗❗
+> ! This project maded for only learning purposes!, there maybe drowbacks, bugs or even security problems!
+> I am (Asqaraliyev Faxriyor) is not responsible for any issues with `project`

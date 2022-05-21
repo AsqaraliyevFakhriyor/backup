@@ -1,0 +1,36 @@
+{% extends "main/base.html" %}
+{% load main_tags %}
+
+{% block title %}
+My Blog
+{% endblock %}
+
+{% block content %}
+  <h1><a href="/main/">My Blgo</a></h1>
+    {% if tag %}
+    <h2>Posts tagged with "{{ tag.name }}"</h2>
+    {% endif %}
+  {% for post in posts %}
+    <h2>
+      <a href="{{ post.get_absolute_url }}">
+        {{ post.title }}
+      </a>
+    </h2>
+    <p class="date">
+      Published {{ post.publish }} by {{ post.author }}
+    </p>
+    {{ post.body|markdown|truncatewords_html:30 }}
+    <p class="tags">
+      Tags:
+      {% for tag in post.tags.all %}
+      <a href="{% url "main:post_list_by_tag" tag.name %}">
+      {{ tag.name }}
+      </a>
+      {% if not forloop.last %}, {% endif %}
+      {% endfor %}
+      </p>
+    {% endfor %}
+
+
+    {% include "pagination.html" with page=posts %}
+  {% endblock %}

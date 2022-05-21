@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="padding-top: 30px;">
+    <h3 class="main-section__title">
+        LogIN
+    </h3>
+    <form action="" method="post" class="main-section">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button" type="submit" style="background-color: #5c7cfa !important; color: white;border: none; padding: 10px 20px;">
+            Log IN
+        </button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,184 @@
+{% load static %}
+
+{% block extrahead %}
+    <script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+    <link rel="stylesheet" href="{% static 'side_bar/side_bar.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+
+    {{ block.super }}
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en" class="bg-primary" >
+<!-- Main Header -->
+<head>
+   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="{% static 'main_app/main_app_base.css' %}"/>
+    
+</head>
+<!-- /Main Header -->
+
+<!-- Main Body -->
+<body class="bg-primary">
+    <header class="bg-primary shadow fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                <a class="navbar-brand fs-3 text-light fw-bold" href="#">
+                    BlogSite<span class="text-warning">2.0</span>
+                    </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light fw-bolder" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light fw-bolder" href="/admin">Admin</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-light fw-bolder" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Post
+                            </a>
+                            <ul class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'article_list' %}">All articles</a></li>
+                                <li><a class="dropdown-item" href="{% url 'article_create' %}">New articles</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#"></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="m-auto">
+                        <form class="m-auto  input-group" action="/posts/search" method="post">
+                            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-warning input-group-append" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    {% if user.is_authenticated %}
+
+                        <li class="dropdown" style="list-style: none;">
+                            <a class="nav-link dropdown-toggle text-light fw-bolder" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ user.username }}
+                            </a>
+                            <ul class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'logout' %}">Log out <i class="fas fa-sign-out-alt"></i> </a></li>
+                                <li><a class="dropdown-item" href="{% url 'password_change' %}">Change password</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-primary fw-bolder">Login</a>
+                    {% endif %}
+                </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="" style="padding-top: 120px; height: 100%;">
+            {% block content %}
+            {% endblock content %}
+            <!-- Sidebar section -->
+            <div class="articles_sidebar rights">
+                <div class="container sidebar">
+                    <center class="font-monospace">
+                        <h2>BlogSite2.0</h2>
+                        <a href="https://github.com/AsqaraliyevFakhriyor/blogsite2.0" class="btn-sm link-dark  m-auto">
+                            GitHub
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                            </svg>
+                        </a>
+                    </center>
+                    <hr>
+                    <h2>Latest posts:</h2>
+                    <ul>
+                        <li>Post 1</li>
+                        <li>Post 2</li>
+                        <li>Post 3</li>
+                    </ul>
+                    
+                    <hr>
+                    <h2>Most liked posts:</h2>
+                    <ul>
+                        <li>Post 1</li>
+                        <li>Post 2</li>
+                        <li>Post 3</li>
+                        <li>Post 4</li>
+                        <li>Post 5</li>
+                    </ul>
+                </div>
+                <a class="container sidebar btn btn-danger text-light">
+                    RSS
+                    <i class="bi bi-rss-fill"></i>
+                 </a>
+            </div>
+
+            <!-- Left sidebar section -->
+            <div class="articles_sidebar lefts">
+                
+                <!-- Comment section -->
+                <div class="container sidebar comment-section">
+                    <form action="" class="form-group">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                          </div>
+
+                        <a class="container sidebar btn btn-danger 100">
+                            Leave a comment
+                        </a>
+                    </form> 
+                </div>
+                <!-- /Comment section -->
+
+                <!-- Social Links -->
+                <div class="container sidebar d-flex flex-wrap w-90 text-bg-light">
+                    <a href="https://t.me/asqaraliyevfaxriyor" class="social__link text-dark btn btn-lg" ><i class="bi bi-telegram"></i></a>
+                    <a href="https://github.com/AsqaraliyevFakhriyor" class="social__link text-dark btn btn-lg"><i class="bi bi-github"></i></a>
+                    <a href="https://www.facebook.com/asqaraliy" class="social__link text-dark btn btn-lg"><i class="bi bi-facebook"></i></a>
+                </div>
+                <!-- /Social Links -->
+            </div>
+            <!-- /Sidebar section -->
+
+    </section>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script>
+        // Delete confirm function
+        function confirmAction( ){
+            const reqField = document.getElementById("article-confirm__title"); // geting title to confirm
+            const inputField = document.getElementById("article-confirm__input"); // input that user entered
+            const buttonField = document.getElementById("article-confirm__button"); // delete button
+            const checkField = document.getElementById("checkconfirm"); // Check button
+            console.log('title',reqField.innerHTML); // cheking data
+            console.log('input',inputField.value); 
+            if (reqField.innerHTML == inputField.value) {
+            buttonField.disabled = false;
+            buttonField.classList.remove("btn-outline-danger");
+            buttonField.classList.add("btn-danger");
+            inputField.disabled = true;
+            checkField.disabled = true;
+            }else{
+                buttonField.disabled = true;
+            };
+        };
+    </script>
+</body>
+<!-- /Main Body -->
+</html>

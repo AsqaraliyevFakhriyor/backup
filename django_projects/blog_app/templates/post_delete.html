@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class="delete_post">
+    Delete post
+</h3>
+<form action="" method="post">
+    {% csrf_token %}
+    <p class="main-section__todos-title">
+        do you want to delete post '{{post.title}}'',
+        you cant find it again!
+    </p>
+    <button class="button" type="submit" style="background-color: crimson !important; color: white;border: none; padding: 10px 20px;">
+        DELETE
+    </button>
+</form>
+{% endblock %}

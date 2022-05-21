@@ -1,0 +1,99 @@
+.container {
+    width: 100%;
+    margin: auto
+}
+
+.articles-container {
+    border-radius: 10px !important;
+}
+
+.articles-container .card {
+    border-radius: 10px !important;
+}
+.card-img-top img{
+    border-radius: 10px !important;
+}
+
+
+.articles-container {
+    width: 60% !important;
+    padding: 5px;
+    margin: auto !important;
+}
+
+.card-container .article-card__link {
+    text-decoration: none;
+    color: black;
+}
+
+.card-img-top img {
+    width: 100%;
+}
+
+/* Sidebar styles */
+.articles_sidebar {
+    width: 25%;
+    position:fixed;
+    top: 91;
+}
+
+
+.articles_sidebar div,
+.articles_sidebar a  {
+    border-radius: 10px;
+    width: 80%;
+    padding: 1rem;
+    margin-bottom: 10px;
+}
+.articles_sidebar a {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.articles_sidebar div {
+    color: black;
+}
+
+.articles_sidebar div h2 {
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Right sidebar */
+.rights {
+    right: 0;
+}
+
+.rights div {
+    background-color: white;
+}
+
+.rigths div a {
+    color: black;   
+}
+
+/* Left sidebar */
+
+.lefts {
+    left: 0;
+}
+
+.lefts .comment-section {
+    background-color: white;
+}
+
+.lefts div form > div {
+    width: 100%;
+}
+
+.lefts div a {
+    display: block;
+    color: white;
+}
+
+/* socal link styles */
+.social__link  {
+    width: 20% !important;
+    margin: auto
+}

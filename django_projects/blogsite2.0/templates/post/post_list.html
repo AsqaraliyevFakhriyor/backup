@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+
+        <!-- Article section -->
+        <div class="articles-container" style="margin-top: -35px !important">
+            {% for post in posts %}
+                <div class="card-container d-flex flex-wrap"> 
+                        <a href="#" class="article-card__link">
+                            <div class="card bg-warning">
+                                <div class="card-img-top">
+                                    <img src="https://static.toiimg.com/thumb/msid-67586673,width-800,height-600,resizemode-75,imgsize-3918697,pt-32,y_pad-40/67586673.jpg" alt="">
+                                </div>
+                                <div class="card-body " style="height: 100hv !important; padding-bottom: 5rem">
+                                    <div class="card-title fw-bold">{{ post.title }}</div>
+                                    <div class="card-text"> {{ post.summary | truncatewords: 20 }} </div>
+                                    {% if post.tag %}
+                                    <div class="card-tags">
+                                        <span class="badge text-bg-danger">Primary</span>
+                                        <span class="badge text-bg-primary">Primary</span>
+                                        <span class="badge text-bg-success">Primary</span>
+                                    </div>
+                                    <div class="card-buttons" >
+                                        <a href="/like" class="btn btn-danger" style="position: absolute; bottom: 16;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-heart-fill" viewBox="0 0 16 16">
+                                                <path d="M2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Zm6 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                                                </svg> 254
+                                        </a>
+
+                                        <p style="right: 20; position: absolute; bottom: 8;">
+                                            21:43 11.04.2001 Admin
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                </div>
+            {% endfor %}
+
+    </div>
+    <!-- /Article section -->
+
+        
+            
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="container">
+
+    <!-- Article section -->
+    <div class="articles-container" style="margin-top: -35px !important">
+    <div class="card-container d-flex flex-wrap"> 
+                <div class="card bg-warning">
+                    <div class="card-img-top">
+                        <img src="https://static.toiimg.com/thumb/msid-67586673,width-800,height-600,resizemode-75,imgsize-3918697,pt-32,y_pad-40/67586673.jpg" alt="">
+                    </div>
+                    <div class="card-body " style="height: 100hv !important; padding-bottom: 5rem">
+                        <div class="card-title fw-bold">Card Title</div>
+                        <p class="card-text" style="text-align: justify;">{{ object.body | safe }}.</p>
+                        <div class="card-tags">
+                            <span class="badge text-bg-danger">Primary</span>
+                            <span class="badge text-bg-primary">Primary</span>
+                            <span class="badge text-bg-success">Primary</span>
+                        </div>
+                        <div class="card-buttons" style="position: absolute; bottom: 16;">
+                            <a href="/like" class="btn btn-danger" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-heart-fill" viewBox="0 0 16 16">
+                                    <path d="M2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2Zm6 3.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+                                    </svg> 254
+                            </a>
+                            <a class="dropdown " style="position: relative; bottom: 16; right: 200">
+                                <a class="text-light fw-bolder btn btn-lg text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-list fw-bold"></i>
+                                </a>
+                                <ul class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item text-success" href="{% url 'post_edit' article.pk %}"><i class="bi bi-pencil-square"></i> Edit</a></li>
+                                    <li><a class="dropdown-item text-danger" href="{% url 'post_delete' article.pk %}"><i class="bi bi-trash3-fill"></i> Delete</a></li>
+                                </ul>
+                            </a>
+                        </div>
+                        <span style="position: absolute; bottom: 25; right: 25;  font-size: 0.8rem">
+                            1.5k <i class="bi bi-eye-fill"></i>. 21:43 11.04.2001 Admin
+                       </span>
+                    </div>
+
+    </div>
+
+</div>
+<br>
+<br>
+{% endblock content %}

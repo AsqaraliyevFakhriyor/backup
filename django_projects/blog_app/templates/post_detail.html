@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" style="padding: 20px;">
+    <div class="main-section__todos post-detail__todos">
+        <fieldset class="main-section__todos-container">
+            <legend class="main-section__todos-title">
+                {{ post.title }}
+            </legend>
+            {{ post.body }}
+        </fieldset>
+        <h5 class="second-legend main-section__todos-title">
+            author: <span class="to-uppercase">{{ post.author }}</span>
+        </h5>
+        <button class="edit-button to-uppercase main-section__todos-title button">
+            <a href="{% url 'post_edit' post.pk %}">edit</a>
+        </button>
+        <button class="delete-button to-uppercase main-section__todos-title button">
+            <a href="{% url 'post_delete' post.pk %}">delete</a>
+        </button>
+    </div>
+</div>
+{% endblock %}

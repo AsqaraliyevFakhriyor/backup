@@ -1,7 +1,0 @@
-2021-10-12 20:10:47,233:ERROR: Tried to divide by zero
-2021-10-12 20:10:47,233:DEBUG: smth happened over there man that is logging!
-2021-10-12 20:11:26,152:ERROR: Tried to divide by zero
-2021-10-12 20:11:26,152:DEBUG: smth happened over there man that is logging!
-ERROR:2021-10-12 20:11:33,610: Tried to divide by zero
-DEBUG:2021-10-12 20:11:33,610: smth happened over there man that is logging!
-CRITICAL:2021-10-12 20:12:16,228: smth happened over there man that is logging!
